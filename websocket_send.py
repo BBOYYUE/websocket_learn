@@ -38,13 +38,15 @@ class debug(Test):
 debug = debug()
 
 loop = asyncio.get_event_loop()
+data = debug.getData()
 
 """单个测试"""
-loop.run_until_complete(run(debug.getData()))
+loop.run_until_complete(run(data))
 
 """同时运行多个测试"""
-# task = [run(TestListenOne.getData()),run(TestListenTwo.getData())]
+# task = []
+# for i in [value for value in range(0,1000)]:
+#     task.append(run(data))
 # loop.run_until_complete(asyncio.wait(task))
-
 
 loop.close()
